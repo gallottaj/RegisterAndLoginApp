@@ -8,20 +8,18 @@ namespace RegisterAndLoginApp.Services
 {
     public class SecurityService
     {
-        List<UserModel> knowUsers = new List<UserModel>();
+
+        UsersDAO usersDAO = new UsersDAO();
 
         public SecurityService()
         {
-            knowUsers.Add(new UserModel { Id = 0, UserName = "BillGates", Password = "bigbucks" });
-            knowUsers.Add(new UserModel { Id = 1, UserName = "MarieCurie", Password = "radioactive" });
-            knowUsers.Add(new UserModel { Id = 2, UserName = "WatsonCrick", Password = "dna" });
-            knowUsers.Add(new UserModel { Id = 3, UserName = "AlexanderFlemming", Password = "peniciliin" });
         }
-        //method to find out if it is a valid user login
+
         public bool IsValid(UserModel user)
         {
+            //passing in user object
+            return usersDAO.FindUserByNameAndPassowrd(user);
             //return true if the user is found in the list
-            return knowUsers.Any(x => x.UserName == user.UserName && x.Password == user.Password);
         }
     }
  }
