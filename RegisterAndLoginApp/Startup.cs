@@ -28,6 +28,9 @@ namespace RegisterAndLoginApp
 
             services.AddDbContext<Create>(options =>
                     options.UseSqlite(Configuration.GetConnectionString("Create")));
+
+            services.AddDbContext<Details>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("Details")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
